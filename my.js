@@ -82,12 +82,13 @@ L.TileLayer.custom = L.TileLayer.extend({
 	minZoom: 0,
 	maxZoom: 8,
 	zoom: 8,
-    getTileUrl: function(coords) {
-        console.log("COORDS : " + coords.x + ", " + coords.y);
-        let url = "http://localhost:3000/tile/" + coords.z + "/" + coords.x + "/" + coords.y + ".png";
-        console.log("URL "+url);
-        return url;
-    }
+	errorTileUrl: "/net/cremi/mcsjean/git/BigDataFront/no.png",
+	getTileUrl: function(coords) {
+		console.log("COORDS : " + coords.x + ", " + coords.y);
+		let url = "http://young:8181/BigDataServer/webapi/tile/" + coords.z + "/" + coords.x + "/" + coords.y;
+		console.log("URL "+url);
+		return url;
+	}
 });
 
 L.tileLayer.custom = function() {
